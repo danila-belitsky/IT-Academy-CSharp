@@ -4,31 +4,44 @@
     {
         static void Main(string[] args)
         {
-            //Task1();
-            //Task2();
-            //Task3();
-            //Task4();
+            FindHypotenuse();
+
+            Console.ReadKey();
+            Console.Clear();
+
+            Multiplication();
+
+            Console.ReadKey();
+            Console.Clear();
+
+            MultiplicationTable();
+
+            Console.ReadKey();
+            Console.Clear();
+
+            Deposit();
         }
-        public static void Task1()
+        private static void FindHypotenuse()
         {
-            int legA = GetIntNumber("Введите значение катета a: ", false);
-            int legB = GetIntNumber("Введите значение катета b: ", false);
+            int legA = GetIntNumber("Введите значение катета a: ", 0, int.MaxValue);
+            int legB = GetIntNumber("Введите значение катета b: ", 0, int.MaxValue);
 
             Console.WriteLine($"Гипотенуза равна: {Math.Sqrt(legA * legA + legB * legB)}");
         }
 
-        public static void Task2()
+        private static void Multiplication()
         {
-            int a = GetIntNumber("Введите первный множитель: ", true);
-            int b = GetIntNumber("Введите второй множитель: ", true);
+            int a = GetIntNumber("Введите первный множитель: ", -1, 11);
+            int b = GetIntNumber("Введите второй множитель: ", -1, 11);
 
             Console.WriteLine($"Результат умножения: {a * b}");
         }
 
-        public static void Task3()
+        private static void MultiplicationTable()
         {
             int posTop = Console.CursorTop;
             int posLeft = Console.CursorLeft;
+
             Console.SetWindowSize(135, Console.WindowHeight);
 
             for (int i = 1; i < 11; i++)
@@ -44,10 +57,10 @@
             }
         }
 
-        public static void Task4()
+        private static void Deposit()
         {
-            decimal deposit = Convert.ToDecimal(GetIntNumber("Введите размер вклада: ", false));
-            int numOfMonths = GetIntNumber("Введите кол-во месяцев: ", false);
+            decimal deposit = Convert.ToDecimal(GetIntNumber("Введите размер вклада: ", 0, int.MaxValue));
+            int numOfMonths = GetIntNumber("Введите кол-во месяцев: ", 0, int.MaxValue);
 
             for (int i = 0; i < numOfMonths; i++)
             {
@@ -56,31 +69,33 @@
 
             Console.WriteLine($"Итоговая сумма: {deposit}");
         }
-
-        public static int GetIntNumber(string msg, bool underTen)
+        
+        private static int GetIntNumber(string message, int min, int max)
         {
             int number;
-            do
+
+            while (true)
             {
-                Console.Write(msg);
-                
+                Console.Write(message);
+
                 number = Convert.ToInt32(Console.ReadLine());
-                if (number <= 0)
+
+                if (number <= min)
                 {
-                    Console.WriteLine("Число должно быть больше 0!");
+                    Console.WriteLine($"Число должно быть больше {min}!");
                 }
-                else if (underTen && number > 10)
+                else if (number >= max)
                 {
-                    Console.WriteLine("Число должно быть меньше 10!");
+                    Console.WriteLine($"Число должно быть меньше {max}!");
                 }
                 else
                 {
                     break;
                 }
-            } while (number <= 0 || number > 10);
+            }
 
             return number;
         }
-    }
 
+    }
 }
