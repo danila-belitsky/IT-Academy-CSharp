@@ -4,12 +4,10 @@
     {
         static void Main(string[] args)
         {
-            //Task1();
-            //Task6();
             //Console.WriteLine(ExtraTask(263));
         }
 
-        public static void Task1()
+        public static void InputTypes()
         {
             Console.Write("Введите значение bool: ");
             bool _bool = Convert.ToBoolean(Console.ReadLine());
@@ -66,7 +64,7 @@
             }
         }
         
-        public static void Task2()
+        public static void Conversion()
         {
             sbyte _sbyte = 5;
 
@@ -88,7 +86,7 @@
 
         }
     
-        public static void Task3()
+        public static void Boxing()
         {
             int num = 1;
 
@@ -97,21 +95,21 @@
 
         }
     
-        public static void Task4()
+        public static void Var()
         {
             var a = 1;
             a++;
             Console.WriteLine(a);
         }
 
-        public static void Task5()
+        public static void VarError()
         {
             var a = 1;
             //a = "a";
             // Переменной при объявлении неявно задаётся тип "int", а переменной этого типа нельзя присвоить значение типа "string"
         }
     
-        public static void Task6()
+        public static void SushiRecipe()
         {
             Console.WriteLine("\tИнгридиенты:");
             Console.WriteLine("500 гр.риса, 750 мл.воды,");
