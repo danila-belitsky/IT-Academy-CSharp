@@ -20,6 +20,7 @@
             do
             {
                 Console.WriteLine(number);
+
                 number -= 20;
             } while (number >= -100);
         }
@@ -34,15 +35,14 @@
 
         private static void ArithmeticMean(int a, int b)
         {
-            int sum = 0, counter = 0;
+            int sum = 0, counter;
 
-            for (int i = a; i <= b; i++)
+            for (counter = a; counter <= b; counter++)
             {
-                sum += i;
-                counter++;
+                sum += counter;
             }
 
-            Console.WriteLine($"Sum = {sum}, Arithmetic mean = {sum/counter}");
+            Console.WriteLine($"Sum = {sum}, Arithmetic mean = {sum/(counter - a)}");
         }
     }
 }
