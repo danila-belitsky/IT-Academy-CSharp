@@ -10,7 +10,7 @@
             CounterLoop();
             Console.WriteLine('\n');
 
-            ArithmeticMean(1, 3);
+            ArithmeticMean(2, 5);
         }
 
         private static void OutputNumbers()
@@ -42,7 +42,7 @@
                 sum += counter;
             }
 
-            Console.WriteLine($"Sum = {sum}, Arithmetic mean = {sum/(counter - a)}");
+            Console.WriteLine($"Sum = {sum}, Arithmetic mean = {(float)sum/(counter - a)}");
         }
     }
 }
