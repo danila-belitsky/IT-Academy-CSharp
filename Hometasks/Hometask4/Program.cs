@@ -1,7 +1,4 @@
-﻿using System.Diagnostics.Metrics;
-using static Hometask4.Point;
-
-namespace Hometask4
+﻿namespace Hometask4
 {
     internal class Program
     {

@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
+﻿using static Hometask4.Methods;
 
 namespace Hometask4
 {
     public class Factory
     {
-        private List<Employee> _employees;
+        private readonly List<Employee> _employees;
 
         public Factory()
         {
@@ -19,9 +14,7 @@ namespace Hometask4
         public void AddEmployee()
         {
             string name = GetString("Enter the employee's name: ");
-
             string position = GetString("Enter the employee's position: ");
-
             int salary = GetInt("Enter the employee's salary: ");
 
             Employee employee = new Employee(name, position, salary);
@@ -66,10 +59,11 @@ namespace Hometask4
         public void ShowListOfEmployees()
         {
             Console.WriteLine("List of employees:\n");
+            Console.WriteLine($"    | {"Name",-20} | {"Position",-20} | {"Salary",-10}");
 
             for (int i = 0; i < _employees.Count; i++)
             {
-                Console.WriteLine($"  {i + 1} | {_employees[i].Name, -20} | {_employees[i].Position, -20} | {_employees[i].Salary, -10} $");
+                Console.WriteLine($"  {i + 1} | {_employees[i].Name,-20} | {_employees[i].Position,-20} | {_employees[i].Salary,-10} $");
             }
             Console.WriteLine("\n");
         }
@@ -92,54 +86,6 @@ namespace Hometask4
 
             Console.WriteLine("\nSuccessfully changed. Press any button to continue...\n");
             Console.ReadKey();
-        }
-
-        public static int GetInt(string message)
-        {
-            int num;
-            string? input;
-
-            while (true)
-            {
-                Console.Write(message);
-                input = Console.ReadLine();
-
-                if (!int.TryParse(input, out num))
-                {
-                    Console.WriteLine("Input error!\n");
-                }
-                else if (num < 0)
-                {
-                    Console.WriteLine("Cannot be less than zero!\n");
-                }
-                else
-                {
-                    break;
-                }
-            }
-
-            return num;
-        }
-
-        public static string GetString(string message)
-        {
-            string? input;
-
-            while (true)
-            {
-                Console.Write(message);
-                input = Console.ReadLine();
-                if (string.IsNullOrEmpty(input))
-                {
-                    Console.WriteLine("Input error!\n");
-                }
-                else
-                {
-                    break;
-                }
-            }
-
-            return input;
         }
     }
 }

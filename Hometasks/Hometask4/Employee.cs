@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Hometask4
+﻿namespace Hometask4
 {
     public class Employee
     {
-        private string _name;
+        private readonly string _name;
         private string _position;
         private int _salary;
 

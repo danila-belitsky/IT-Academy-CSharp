@@ -1,17 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Hometask4
+﻿namespace Hometask4
 {
     public class Point
     {
-        private static int numberOfPoints = 0;
+        private static int numberOfPoints;
 
-        private float x;
-        private float y;
+        private readonly float x;
+        private readonly float y;
 
         public float X => x;
         public float Y => y;
@@ -22,6 +16,7 @@ namespace Hometask4
             this.y = y;
             numberOfPoints++;
         }
+
         public static int GetNumberOfPoints()
         {
             return numberOfPoints;
