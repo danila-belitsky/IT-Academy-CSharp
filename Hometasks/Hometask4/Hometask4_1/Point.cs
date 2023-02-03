@@ -1,4 +1,4 @@
-﻿namespace Hometask4
+﻿namespace Hometask4.Hometask4_1
 {
     public class Point
     {

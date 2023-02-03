@@ -1,4 +1,4 @@
-﻿namespace Hometask4
+﻿namespace Hometask4.Hometask4_2
 {
     public static class Methods
     {

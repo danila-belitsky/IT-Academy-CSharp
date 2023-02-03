@@ -1,15 +1,18 @@
-﻿namespace Hometask4
+﻿using Hometask4.Hometask4_1;
+using Hometask4.Hometask4_2;
+
+namespace Hometask4
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            //Point point1 = new Point(1, 1);
-            //Point point2 = new Point(5, 5);
+            Point point1 = new Point(1, 1);
+            Point point2 = new Point(5, 5);
 
-            //Console.WriteLine("Distance between points: " + Point.LengthPoints(point1, point2));
-            //Console.WriteLine("Number of points: " + Point.GetNumberOfPoints());
-            //Console.ReadKey();
+            Console.WriteLine("Distance between points: " + Point.LengthPoints(point1, point2));
+            Console.WriteLine("Number of points: " + Point.GetNumberOfPoints());
+            Console.ReadKey();
 
             Factory();
         }

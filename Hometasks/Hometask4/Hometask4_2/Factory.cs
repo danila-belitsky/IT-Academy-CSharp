@@ -1,6 +1,6 @@
-﻿using static Hometask4.Methods;
+﻿using static Hometask4.Hometask4_2.Methods;
 
-namespace Hometask4
+namespace Hometask4.Hometask4_2
 {
     public class Factory
     {
