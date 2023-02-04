@@ -14,10 +14,12 @@ namespace Hometask4.Hometask4_2
         public void AddEmployee()
         {
             string name = GetString("Enter the employee's name: ");
+            string surname = GetString("Enter the employee's surname: ");
+            int age = GetInt("Enter the employee's age: ");
             string position = GetString("Enter the employee's position: ");
             int salary = GetInt("Enter the employee's salary: ");
 
-            Employee employee = new Employee(name, position, salary);
+            Employee employee = new Employee(name, surname, age, position, salary);
 
             _employees.Add(employee);
 
@@ -63,7 +65,7 @@ namespace Hometask4.Hometask4_2
 
             for (int i = 0; i < _employees.Count; i++)
             {
-                Console.WriteLine($"  {i + 1} | {_employees[i].Name,-20} | {_employees[i].Position,-20} | {_employees[i].Salary,-10} $");
+                Console.WriteLine($"  {i + 1} | {_employees[i].Name,-15} | {_employees[i].Surname,-15} | {_employees[i].Age,-2} | {_employees[i].Position,-15} | {_employees[i].Salary,-5} $");
             }
             Console.WriteLine("\n");
         }
