@@ -10,7 +10,7 @@
             CounterLoop();
             Console.WriteLine('\n');
 
-            ArithmeticMean(2, 5);
+            ArithmeticMean();
         }
 
         private static void OutputNumbers()
@@ -22,27 +22,56 @@
                 Console.WriteLine(number);
 
                 number -= 20;
-            } while (number >= -100);
+            }
+            while (number >= -100);
         }
 
         private static void CounterLoop()
         {
             for (int i = 10; i < 100; i += 5)
             {
-                Console.Write(i + " ");
+                if (i % 5 == 0)
+                {
+                    Console.Write(i + " ");
+                }
             }
         }
 
-        private static void ArithmeticMean(int a, int b)
+        private static void ArithmeticMean()
         {
-            int sum = 0, counter;
+            int sum = 0;
+            int counter;
+
+            int a = GetInt("Enter a: ");
+            int b = GetInt("Enter b: ");
 
             for (counter = a; counter <= b; counter++)
             {
                 sum += counter;
             }
 
-            Console.WriteLine($"Sum = {sum}, Arithmetic mean = {(float)sum/(counter - a)}");
+            Console.WriteLine($"\nSum = {sum}, Arithmetic mean = {(float)sum / (counter - a)}");
+        }
+
+        private static int GetInt(string message)
+        {
+            int num;
+
+            while (true)
+            {
+                Console.Write(message);
+
+                if (!int.TryParse(Console.ReadLine(), out num))
+                {
+                    Console.WriteLine("Incorrect input!");
+                }
+                else
+                {
+                    break;
+                }
+            }
+
+            return num;
         }
     }
 }
