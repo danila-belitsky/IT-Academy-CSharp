@@ -1,5 +1,7 @@
-﻿using Hometask4.Hometask4_1;
-using Hometask4.Hometask4_2;
+﻿using Hometask4.Hometask4_2;
+using Hometask4.Hometask4_3;
+using System.Drawing;
+using Point = Hometask4.Hometask4_1.Point;
 
 namespace Hometask4
 {
@@ -15,6 +17,19 @@ namespace Hometask4
             Console.ReadKey();
 
             Factory();
+
+            Console.Clear();
+
+            Appliance dishwashMachine = new DishwashMachine("GSD12FSD4", 0);
+            dishwashMachine.Launch();
+            dishwashMachine.Shutdown();
+            
+            Appliance washingMachine = new WashingMachine("187FLQ")
+            {
+                WashingTime = 60,
+            };
+            washingMachine.Launch();
+            washingMachine.Shutdown();
         }
 
         public static void Factory()
