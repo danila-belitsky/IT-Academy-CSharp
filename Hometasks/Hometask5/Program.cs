@@ -12,8 +12,13 @@ namespace Hometask5
             GetMaxNumber();
             Console.WriteLine('\n');
 
-            GetFileName(@"c:\WebServers\home\testsite\www\myfile.txt");
+            GetFileName("c:\\WebServers\\home\\testsite\\www\\myfile.txt");
             Console.WriteLine('\n');
+
+            GetFileName0("c:\\WebServers\\home\\testsite\\www\\myfile.txt");
+            Console.WriteLine('\n');
+
+            GetFileName1("c:\\WebServers\\home\\testsite\\www\\myfile.txt");
 
             string text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor " +
                           "incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis " +
@@ -84,13 +89,66 @@ namespace Hometask5
             }
         }
 
+        // Работа со строками
+        // Это первое что мне пришло в голову
         private static void GetFileName(string path)
         {
-            Regex regex = new Regex(@"\w+");
+            string[] words = path.Split('\\');
+            string[] fileName = words[^1].Split('.');
+            Console.Write(fileName[0]);
+        }
 
-            MatchCollection matchCollection = regex.Matches(path);
+        // А это второе
+        private static void GetFileName0(string path)
+        {
+            List<char> letters = new List<char>();
 
-            Console.WriteLine(matchCollection[^2]);
+            for (int i = path.Length - 1; i >= 0; i--)
+            {
+                if (path[i] == '.')
+                {
+                    i--;
+                    while (path[i] != '\\')
+                    {
+                        letters.Add(path[i]);
+                        i--;
+                    }
+                    break;
+                }
+            }
+
+            for (int i = letters.Count - 1; i >= 0; i--)
+            {
+                Console.Write(letters[i]);
+            }
+
+            // либо ещё можно перевернуть и вывести
+
+            //letters.Reverse();
+            //foreach (char letter in letters)
+            //{
+            //    Console.Write(letter);
+            //}
+        }
+
+        // И ещё вот такой вариант, крайне не практичный, но по сути задачу по выводу имени тоже выполняет :)
+        private static void GetFileName1(string path)
+        {
+            for (int i = path.Length - 1; i >= 0; i--)
+            {
+                if (path[i] == '.')
+                {
+                    while (path[i-1] != '\\')
+                    {
+                        i--;
+                        // установить каретку где-то ближе к центру первой строки консоли, чтобы был запас длины на случай длинного имени файла
+                        Console.SetCursorPosition(i + 20, 0);
+                        Console.Write(path[i]);
+                    }
+                    Console.SetCursorPosition(0, 17);
+                    break;
+                }
+            }
         }
 
         private static void GetAmountOfWords(string text)
