@@ -1,4 +1,5 @@
 ﻿using Hometask7.Hometask7_1;
+using Hometask7.Hometask7_2;
 
 namespace Hometask7
 {
@@ -7,7 +8,7 @@ namespace Hometask7
         static void Main(string[] args)
         {
             Library library = new Library();
-            
+
             library.AddedBook += Notify;
 
             Reader reader0 = new Reader(0);
@@ -41,7 +42,6 @@ namespace Hometask7
             library.AddBooks(book3);
             library.AddBooks(book0);
 
-
             void Notify(Genre genre)
             {
                 foreach (var reader in library.readers)
@@ -52,6 +52,33 @@ namespace Hometask7
                     }
                 }
             }
+
+            Console.ReadKey();
+            Console.Clear();
+            
+            // Task 2
+
+            FirstUnit firstUnit = new FirstUnit('@', "FirstUnit");
+            SecondUnit secondUnit = new SecondUnit('#', 2);
+            ThirdUnit thirdUnit = new ThirdUnit('&');
+
+            firstUnit.Move();
+            firstUnit.Fly();
+            firstUnit.Move2();
+
+            Console.ReadKey();
+
+            secondUnit.Move();
+            secondUnit.Jump();
+            secondUnit.Move2();
+
+            Console.ReadKey();
+
+            thirdUnit.Move();
+            thirdUnit.Swim();
+            thirdUnit.Move2();
+
+            Console.ReadKey();
         }
     }
 }
