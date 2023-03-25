@@ -7,4 +7,10 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Reference Include="dz8">
+      <HintPath>bin\Debug\net7.0\dz8.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>
